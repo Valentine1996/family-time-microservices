@@ -30,8 +30,8 @@ task createWrapper(type: Wrapper) {
 }
 
 // Used by the Docker gradle plugin, group refers to the account under which the docker image is created
-group = 'anilallewar'
-mainClassName = 'com.anilallewar.microservices.task.TaskApplication'
+group = 'valentyn'
+mainClassName = 'com.valentyn.familytime.task.TaskApplication'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -61,14 +61,63 @@ dependencies {
     
     // Eureka client
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
-	
-	// Spring cloud contract client and OAuth2 security tests
-	testCompile("org.springframework.security:spring-security-test")
-	testCompile("org.springframework.boot:spring-boot-starter-test")
-	testCompile("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
-	
-	// Zipkin tracing
-	compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+
+    //--------------------------------------------------
+    //Core
+    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.16.RELEASE'
+    //Spring security
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.1.RELEASE'
+    //OAuth2
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.0.7.RELEASE'
+    // tag::jetty[]jetty
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+        exclude group: "com.fasterxml.jackson.core"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+    //Javax el
+    compile group: 'javax.el', name: 'el-api', version: '2.2'
+    //Testing
+    testCompile("junit:junit")
+    //For test configuration
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    //Rest Dock
+    compile group: 'org.springframework.restdocs', name: 'spring-restdocs-core', version: '1.1.0.RELEASE'
+    testCompile ("org.springframework.restdocs:spring-restdocs-mockmvc:1.1.0.RELEASE")
+    //HSQL
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.1'
+    //Mail test servers
+    //Greenmail
+    compile ('com.icegreen:greenmail:1.4.1') {
+        exclude group: "com.sun.mail", module: "javax.mail"
+    }
+    //Hibernate,JPA
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.1.4.RELEASE'
+    compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.1.0.Final'
+    compile ( 'org.hibernate:hibernate-java8:5.1.0.Final'){
+        exclude group: "org.hibernate", module: "hibernate-core"
+    }
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    //Mysql
+    compile 'mysql:mysql-connector-java:5.1.31'
+    //Jackson
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.1'
+    //Jayway
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.0.0'
+    //Javax mail
+    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+    //Guava
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
+    //Templaters
+    //HandleBas
+    compile group: 'com.github.jknack', name: 'handlebars', version: '4.0.5'
 }
 
 jar {

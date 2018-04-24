@@ -1,0 +1,16 @@
+mail:
+  host: smtp.gmail.com
+  port: 587
+  username: iffamilytime@gmail.com
+  password: xwlxrkgskiimeifs
+app:
+  hostname: http://family-time.thecoffeine.com/
+---
+
+spring:
+  profiles: development
+mail:
+  host: localhost
+  port: 3025
+  username: iffamilytime@gmail.com
+  password: hvccpovpxubgnkoc

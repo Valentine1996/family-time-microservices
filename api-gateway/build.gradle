@@ -39,8 +39,8 @@ task createWrapper(type: Wrapper) {
 * Spring boot application.
 */
 
-group = 'anilallewar'
-mainClassName = 'com.anilallewar.microservices.gateway.GatewayApplication'
+group = 'valentyn'
+mainClassName = 'com.valentyn.familytime.gateway.GatewayApplication'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 

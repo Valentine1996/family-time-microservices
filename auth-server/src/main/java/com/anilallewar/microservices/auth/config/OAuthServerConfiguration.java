@@ -1,9 +1,6 @@
 package com.anilallewar.microservices.auth.config;
 
-import java.security.KeyPair;
-
-import javax.sql.DataSource;
-
+import com.anilallewar.microservices.auth.service.JdbcUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +15,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
-import com.anilallewar.microservices.auth.service.JdbcUserDetailsService;
+import javax.sql.DataSource;
+import java.security.KeyPair;
 
 /**
  * The Class defines the authorization server that would authenticate the user
@@ -53,9 +53,14 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
 		return converter;
 	}
 
+	@Bean
+	public TokenStore tokenStore() {
+		return new JwtTokenStore(jwtAccessTokenConverter());
+	}
+
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.jdbc(this.dataSource).withClient("acme").secret("acmesecret").authorizedGrantTypes("authorization_code",
+		clients.jdbc(this.dataSource).withClient("familyTime").secret("chromeriver").authorizedGrantTypes("authorization_code",
 				"client_credentials", "password", "implicit", "refresh_token").scopes("openid");
 	}
 
