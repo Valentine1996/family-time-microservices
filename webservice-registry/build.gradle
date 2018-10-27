@@ -30,8 +30,8 @@ task createWrapper(type: Wrapper) {
 }
 
 // Used by the Docker gradle plugin, group refers to the account under which the docker image is created
-group = 'anilallewar'
-mainClassName = 'com.anilallewar.microservices.registry.RegistryApplication'
+group = 'valentyn'
+mainClassName = 'com.valentyn.familytime.registry.RegistryApplication'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 

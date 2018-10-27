@@ -1,4 +1,4 @@
-package com.anilallewar.microservices.auth;
+package com.valentyn.familytime.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  * Note that the server is also a Eureka client so as to register with the
  * Eureka server and be auto-discovered by other Eureka clients.
  *
- * @author anilallewar
+ * @author valentyn
  */
 @SpringBootApplication
 @EnableEurekaClient

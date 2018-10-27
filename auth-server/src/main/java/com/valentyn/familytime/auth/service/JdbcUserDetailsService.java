@@ -1,12 +1,12 @@
-package com.anilallewar.microservices.auth.service;
-
-import java.util.LinkedList;
-import java.util.List;
+package com.valentyn.familytime.auth.service;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import java.util.LinkedList;
+import java.util.List;
 
 @Configuration
 public class JdbcUserDetailsService implements UserDetailsService {

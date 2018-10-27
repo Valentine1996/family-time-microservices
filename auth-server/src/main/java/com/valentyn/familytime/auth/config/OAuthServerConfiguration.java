@@ -1,6 +1,6 @@
-package com.anilallewar.microservices.auth.config;
+package com.valentyn.familytime.auth.config;
 
-import com.anilallewar.microservices.auth.service.JdbcUserDetailsService;
+import com.valentyn.familytime.auth.service.JdbcUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ import java.security.KeyPair;
  * and define the client that seeks authorization on the resource owner's
  * behalf.
  * 
- * @author anilallewar
+ * @author valentyn
  */
 
 @Configuration
@@ -82,7 +82,7 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
 	 * Higher priority since lesser ordered value indicate higher priority.
 	 * {@link Ordered#LOWEST_PRECEDENCE} has value as {@link Integer#MAX_VALUE}
 	 * 
-	 * @author anilallewar
+	 * @author valentyn
 	 *
 	 */
 	@Configuration

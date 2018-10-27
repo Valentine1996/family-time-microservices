@@ -1,4 +1,4 @@
-package com.anilallewar.microservices.registry;
+package com.valentyn.familytime.registry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +13,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * Note that all these annotations work in conjunction with properties defined
  * in the external configuration files specified by the config server.
  * 
- * @author anilallewar
+ * @author valentyn
  */
 
 @EnableEurekaServer

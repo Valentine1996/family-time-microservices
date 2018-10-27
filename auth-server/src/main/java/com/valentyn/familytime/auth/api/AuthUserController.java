@@ -1,10 +1,10 @@
-package com.anilallewar.microservices.auth.api;
-
-import java.security.Principal;
+package com.valentyn.familytime.auth.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 /**
  * REST endpoint to be used by other micro-services using SSO to validate the
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * OAuth2 authentication is successful; the OAuth2 server also becomes a
  * resource server.
  * 
- * @author anilallewar
+ * @author valentyn
  *
  */
 @RestController

@@ -80,7 +80,7 @@ Please refer to [user webservice](/../../blob/master/user-webservice/README.md) 
 #### Authorization code 
   * This flow is typically used by web server apps(server-to-server communication) to authorize the user and then get the token using POST from the server.
   * The user needs to be authenticated (if required), before the request is sent to the authorization server.
-  * The authentication credentials are user `dave` and password `secret`. You can add more user if required in the `com.anilallewar.microservices.auth.config.OAuthServerConfiguration` class; look at the `AuthenticationManagerConfiguration` inner class for user initialization.
+  * The authentication credentials are user `dave` and password `secret`. You can add more user if required in the `com.valentyn.familytime.auth.config.OAuthServerConfiguration` class; look at the `AuthenticationManagerConfiguration` inner class for user initialization.
   * After opening an incognito window, paste the following URL(**Note: response_type=code**) in the browser bar
  		```
  		http://localhost:8899/userauth/oauth/authorize?response_type=code&client_id=acme&redirect_uri=http://localhost:8090/index.html
